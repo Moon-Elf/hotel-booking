@@ -3,7 +3,7 @@ const Button = ({ secondary, isLoading, allowed, msg, ...rest }) => {
   return (
     <button
       disabled={isLoading || !allowed}
-      className={`btn px-4 py-2 font-semibold rounded-md cursor-pointer ${
+      className={`btn px-4 py-2 font-semibold rounded-md cursor-pointer w-full sm:w-fit ${
         !secondary ? "" : "bg-blue-500 text-white hover:bg-blue-700 "
       }`}
       {...rest}

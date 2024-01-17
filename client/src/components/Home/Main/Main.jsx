@@ -13,11 +13,11 @@ export default function Main() {
 
   return (
     <main className="w-full">
-      <div className="main-header p-4 flex justify-between items-center border-b">
+      <div className="main-header px-0 py-4 sm:p-4 flex justify-between items-center border-b">
         <h2 className="font-semibold text-2xl">Rooms</h2>
         <MainHeaderFilterBtns setViewMode={setViewMode} />
       </div>
-      <div className="p-4">
+      <div className="sm:p-4">
         {isLoading && <Loader />}
         {!isLoading && isError && <Error message={error.status} />}
         {!isLoading && !isError && viewMode === "list" && (

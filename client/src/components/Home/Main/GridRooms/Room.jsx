@@ -1,5 +1,5 @@
 const Room = ({ room }) => {
-  return <div>Room</div>;
+  return <div>{room.name}</div>;
 };
 
 export default Room;

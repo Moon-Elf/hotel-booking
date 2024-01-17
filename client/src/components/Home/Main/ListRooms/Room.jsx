@@ -19,7 +19,7 @@ const Room = ({ room }) => {
           {/* Card Body */}
           <div className="card-body grid gap-1 mt-2">
             <p>
-              {room.desc.length > 10 ? (
+              {room.desc.length > 60 ? (
                 <span>{room.desc.substring(0, 60)}...</span>
               ) : (
                 room.desc
@@ -46,9 +46,15 @@ const Room = ({ room }) => {
             </div>
           </div>
           {/* Card Footer */}
-          <div className="card-footer flex justify-between border-t mt-4 pt-4">
-            <Button secondary msg="Book Today" />
-            <div className="flex gap-1">
+          <div className="card-footer sm:flex justify-between items-center border-t mt-4 pt-2">
+            {room.bookedCount >= room.bookingLimit ? (
+              <span className="font-semibold text-red-400">
+                Sorry! Running at maximum capacity
+              </span>
+            ) : (
+              <Button secondary msg="Book Today" />
+            )}
+            <div className="flex gap-1 justify-center sm:justify-end mt-2 sm:mt-0">
               <span>{room.bookedCount}</span>/
               <span className="font-bold">{room.bookingLimit}</span>
             </div>
