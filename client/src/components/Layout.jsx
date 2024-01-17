@@ -5,7 +5,7 @@ export default function Layout({ children }) {
   return (
     <>
       <Navbar />
-      <main className="container mx-auto py-8">{children}</main>
+      <main className="container mx-auto py-8 px-2">{children}</main>
       <Footer />
     </>
   );

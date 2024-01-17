@@ -19,13 +19,13 @@ export default function Navbar() {
   return (
     <header className="bg-slate-100 border-b">
       <nav className="container mx-auto px-2 py-3">
-        <div className="flex items-center justify-between">
-          <Link to="/">
+        <div className="sm:flex items-center justify-between">
+          <Link to="/" className="text-center sm:text-start">
             <h3 className="text-3xl font-semibold">
               <span className="font-bold text-blue-600">HOT</span>EL
             </h3>
           </Link>
-          <div className="flex-1 max-w-xs search-field group">
+          <div className="flex-1 max-w-xs search-field mx-auto mt-2 sm:mt-0 sm:mx-0">
             <i className="fa-solid fa-magnifying-glass search-icon group-focus-within:text-blue-500"></i>
             <Input
               placeholder="Search for room"
