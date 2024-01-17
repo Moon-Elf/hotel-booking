@@ -20,7 +20,7 @@ export default function LeftSidebar({
 
   return (
     <div
-      className={`w-3/4 p-4 bg-slate-100 rounded-md shadow-md
+      className={`w-3/4 md:w-1/2 p-4 bg-slate-100 rounded-md shadow-md
     fixed md:relative top-0 left-0 h-full md:h-fit transition-all md:translate-x-0 ${
       !mobileSidebarView ? "-translate-x-full" : "translate-x-0"
     }`}

@@ -5,3 +5,11 @@
 .container {
     @apply max-w-[1200px]
 }
+
+.img-box {
+    @apply max-w-[150px] w-full
+}
+
+img {
+    @apply w-full h-full object-cover rounded-md
+}

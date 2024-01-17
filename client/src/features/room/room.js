@@ -2,10 +2,10 @@ import apiSlice from "../api/apiSlice";
 
 const imageApi = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
-    getFacilities: builder.query({
-      query: () => "image",
+    getRooms: builder.query({
+      query: () => "room",
     }),
   }),
 });
 
-export const { useGetFacilitiesQuery } = imageApi;
+export const { useGetRoomsQuery } = imageApi;
