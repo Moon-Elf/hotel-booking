@@ -2,7 +2,6 @@ const { Schema, model } = require("mongoose");
 
 const roomSchema = Schema({
   name: String,
-  type: String,
   url: String,
   rating: Number,
   desc: String,

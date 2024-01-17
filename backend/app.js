@@ -5,7 +5,6 @@ const app = express();
 
 const roomRouter = require("./routes/roomRouter");
 const facilityRouter = require("./routes/facilityRouter");
-const roomTypeRouter = require("./routes/roomTypeRouter");
 const userRouter = require("./routes/userRouter");
 
 app.use(cors());
@@ -14,7 +13,6 @@ app.use(morgan("dev"));
 
 app.use("/api/room", roomRouter);
 app.use("/api/facility", facilityRouter);
-app.use("/api/roomType", roomTypeRouter);
 app.use("/api/user", userRouter);
 
 app.get("/", (req, res) => {

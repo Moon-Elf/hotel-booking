@@ -13,3 +13,7 @@ dist-ssr
 *.local
 
 .env
+
+facility.json
+room.json
+roomType.json
