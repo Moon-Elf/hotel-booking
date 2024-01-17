@@ -6,4 +6,4 @@ const roomTypeSchema = Schema({
   url: String,
 });
 
-module.exports = model("Room Type", roomTypeSchema);
+module.exports = model("RoomType", roomTypeSchema);

@@ -1,8 +1,8 @@
 const { Schema, model } = require("mongoose");
 
-const categorySchema = Schema({
+const facilitySchema = Schema({
   name: String,
   slug: String,
 });
 
-module.exports = model("Category", categorySchema);
+module.exports = model("Facility", facilitySchema);
