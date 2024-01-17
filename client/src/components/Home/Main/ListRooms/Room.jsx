@@ -7,6 +7,10 @@ const Room = ({ room }) => {
   for (let i = 0; i < room.rating; i++) {
     ratingArr[i] = (i + 1).toString();
   }
+  const ratingLeftArr = new Array(5 - room.rating);
+  for (let i = 0; i < 5 - room.rating; i++) {
+    ratingLeftArr[i] = (i + 1).toString();
+  }
   return (
     <div>
       <div className="listRoomCard flex gap-4 bg-slate-100 p-2 rounded-md">
@@ -42,6 +46,9 @@ const Room = ({ room }) => {
                   className="fill-orange-600 stroke-none"
                   size={15}
                 />
+              ))}
+              {ratingLeftArr.map((arr, index) => (
+                <Star key={index} className="stroke-orange-600" size={15} />
               ))}
             </div>
           </div>
