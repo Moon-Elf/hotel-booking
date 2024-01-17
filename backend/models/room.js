@@ -8,7 +8,7 @@ const roomSchema = Schema({
   bookingLimit: Number,
   bookedCount: Number,
   users: [{ name: String, phone: Number }],
-  facilities: [{ name: String }],
+  facilities: [String],
 });
 
 module.exports = model("Room", roomSchema);
