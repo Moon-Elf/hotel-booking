@@ -1,12 +1,9 @@
-import { useSelector } from "react-redux";
 import { useGetFacilitiesQuery } from "../../../features/facility/facilityApi";
 import Error from "../../ui/Error";
 import Loader from "../../ui/Loader";
 import { Facilities } from "./Facilities";
 
 export default function LeftSidebar() {
-  const state = useSelector((state) => state.filter);
-  console.log(state);
   const { data, isLoading, isError, error } = useGetFacilitiesQuery();
 
   let content = null;

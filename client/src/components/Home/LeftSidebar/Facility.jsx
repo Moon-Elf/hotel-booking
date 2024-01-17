@@ -1,5 +1,9 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import {
+  addSelectedRoomFacilities,
+  removeSelectedRoomFacilities,
+} from "../../../features/filter/filterSlice";
 
 const Facility = ({ facility }) => {
   const [selected, setSelected] = useState(true);
@@ -8,6 +12,11 @@ const Facility = ({ facility }) => {
 
   const handleClick = () => {
     setSelected(!selected);
+    if (selected) {
+      dispatch(removeSelectedRoomFacilities(facility._id));
+    } else {
+      dispatch(addSelectedRoomFacilities(facility));
+    }
   };
   return (
     <div

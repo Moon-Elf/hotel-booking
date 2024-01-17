@@ -22,7 +22,7 @@ const filterSlice = createSlice({
     },
     removeSelectedRoomFacilities: (state, action) => {
       state.selectedRoomFacilities = state.selectedRoomFacilities.filter(
-        (item) => item.roomType !== action.payload
+        (item) => item._id !== action.payload
       );
     },
   },
