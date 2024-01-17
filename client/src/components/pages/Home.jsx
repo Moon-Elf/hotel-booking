@@ -1,5 +1,5 @@
 import LeftSidebar from "../Home/LeftSidebar/LeftSidebar";
-import Main from "../Home/Main";
+import Main from "../Home/Main/Main";
 
 export default function Home() {
   return (
