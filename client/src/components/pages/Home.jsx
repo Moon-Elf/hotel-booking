@@ -1,9 +1,9 @@
-import LeftSidebar from "../Home/LeftSidebar";
+import LeftSidebar from "../Home/LeftSidebar/LeftSidebar";
 import Main from "../Home/Main";
 
 export default function Home() {
   return (
-    <div className="flex">
+    <div className="flex gap-4">
       <LeftSidebar />
       <Main />
     </div>
