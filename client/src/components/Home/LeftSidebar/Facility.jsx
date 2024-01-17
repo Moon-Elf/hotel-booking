@@ -2,11 +2,13 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 
 const Facility = ({ facility }) => {
-  const [selected, setSelected] = useState(false);
+  const [selected, setSelected] = useState(true);
 
   const dispatch = useDispatch();
 
-  const handleClick = () => {};
+  const handleClick = () => {
+    setSelected(!selected);
+  };
   return (
     <div
       className={`bg-white px-2 py-1 rounded-md cursor-pointer hover:bg-slate-200/50 border-2 ${
