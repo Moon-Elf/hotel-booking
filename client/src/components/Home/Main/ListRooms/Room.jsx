@@ -31,7 +31,9 @@ const Room = ({ room }) => {
         </Link>
         {/* Card Details */}
         <div className="listRoomCard-details flex flex-col justify-between w-full">
-          <h5 className="font-semibold text-lg">{name}</h5>
+          <h5 className="font-semibold text-lg">
+            <Link to={`/room/${_id}`}>{name}</Link>
+          </h5>
           {/* Card Body */}
           <div className="card-body grid gap-1 mt-2">
             <p>

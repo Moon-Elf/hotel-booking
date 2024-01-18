@@ -2,7 +2,7 @@ import { Grid3X3, LayoutList } from "lucide-react";
 import { useDispatch } from "react-redux";
 import { updateSort } from "../../../features/filter/filterSlice";
 
-const MainHeaderFilterBtns = ({ setViewMode }) => {
+const MainHeaderFilterBtns = ({ viewMode, setViewMode }) => {
   const dispatch = useDispatch();
 
   const handleChange = (e) => {
@@ -11,12 +11,16 @@ const MainHeaderFilterBtns = ({ setViewMode }) => {
   return (
     <div className="gallery-functions flex items-center gap-2 text-slate-400">
       <LayoutList
-        className="cursor-pointer hover:text-black transition-all"
+        className={`cursor-pointer hover:text-slate-600 transition-all ${
+          viewMode === "list" && "text-blue-500"
+        }`}
         size={20}
         onClick={() => setViewMode("list")}
       />
       <Grid3X3
-        className="cursor-pointer hover:text-black transition-all"
+        className={`cursor-pointer hover:text-slate-600 transition-all ${
+          viewMode === "grid" && "text-blue-500"
+        }`}
         size={20}
         onClick={() => setViewMode("grid")}
       />

@@ -7,7 +7,7 @@ import ListRooms from "./ListRooms/ListRooms";
 import MainHeaderFilterBtns from "./MainHeaderFilterBtns";
 
 export default function Main() {
-  const [viewMode, setViewMode] = useState("list");
+  const [viewMode, setViewMode] = useState("grid");
 
   const { data, isLoading, isError, error } = useGetRoomsQuery();
 
@@ -15,7 +15,7 @@ export default function Main() {
     <main className="w-full">
       <div className="main-header px-0 py-4 sm:p-4 flex justify-between items-center border-b">
         <h2 className="font-semibold text-2xl">Rooms</h2>
-        <MainHeaderFilterBtns setViewMode={setViewMode} />
+        <MainHeaderFilterBtns viewMode={viewMode} setViewMode={setViewMode} />
       </div>
       <div className="sm:p-4">
         {isLoading && <Loader />}
