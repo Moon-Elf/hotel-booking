@@ -11,15 +11,15 @@ import Pagination from "./Pagination";
 
 export default function Main() {
   const [page, setPage] = useState(1);
-  const [limit] = useState(6);
+  const [limit] = useState(1);
   const [viewMode, setViewMode] = useState("grid");
-  const [rooms, setRooms] = useState([]);
 
   const { data, isLoading, isError, error } = useGetRoomsQuery();
 
   const [loaded, setLoaded] = useState(false);
   const [selectedTags, setSelectedTags] = useState([]);
-  const [orderedRooms, setOrderedRooms] = useState(rooms);
+  const [orderedRooms, setOrderedRooms] = useState([]);
+  const [filteredRooms, setFilteredRooms] = useState([]);
   const { search, selectedRoomFacilities, sort } = useSelector(
     (state) => state.filter
   );
@@ -31,43 +31,40 @@ export default function Main() {
 
   const sortRooms = useCallback(() => {
     if (sort === "asc") {
-      const newRooms = _.cloneDeep(rooms);
+      const newRooms = _.cloneDeep(data);
       newRooms.sort((a, b) => a.price - b.price);
       setOrderedRooms(newRooms);
     } else if (sort === "desc") {
-      const newRooms = _.cloneDeep(rooms);
+      const newRooms = _.cloneDeep(data);
       newRooms.sort((a, b) => b.price - a.price);
       setOrderedRooms(newRooms);
     } else if (sort === "default") {
-      setOrderedRooms(rooms);
+      setOrderedRooms(data);
     }
-  }, [sort, rooms]);
+  }, [sort, data]);
+
+  const filterRoomsFunc = useCallback(() => {
+    if (orderedRooms) {
+      const arr = orderedRooms
+        .filter(
+          (room) =>
+            room.name.toLowerCase().includes(search) ||
+            room.desc.toLowerCase().includes(search)
+        )
+        .filter((room) => {
+          const check = room.facilities.filter((facility) => {
+            if (selectedTags.includes(facility)) return facility;
+          });
+          if (check.length) return room;
+        });
+      setFilteredRooms(arr);
+    }
+  }, [search, selectedTags, orderedRooms]);
 
   useEffect(() => {
     sortRooms();
-  }, [sortRooms]);
-
-  let filteredRooms = orderedRooms
-    .filter(
-      (room) =>
-        room.name.toLowerCase().includes(search) ||
-        room.desc.toLowerCase().includes(search)
-    )
-    .filter((room) => {
-      const check = room.facilities.filter((facility) => {
-        if (selectedTags.includes(facility)) return facility;
-      });
-      if (check.length) return room;
-    });
-
-  // Set current page
-  useEffect(() => {
-    if (!isLoading && !isError && data.length) {
-      const newArr = _.cloneDeep(data);
-      setRooms(newArr.slice(page - 1, limit));
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [page, isLoading, isError]);
+    filterRoomsFunc();
+  }, [sortRooms, filterRoomsFunc]);
 
   return (
     <main className="w-full">
@@ -79,14 +76,19 @@ export default function Main() {
         {isLoading && <Loader />}
         {!isLoading && isError && <Error message={error.status} />}
         {!isLoading && !isError && viewMode === "list" && loaded && (
-          <ListRooms rooms={filteredRooms} />
+          <ListRooms page={page} limit={limit} rooms={filteredRooms} />
         )}
         {!isLoading && !isError && viewMode === "grid" && loaded && (
-          <GridRooms rooms={filteredRooms} />
+          <GridRooms page={page} limit={limit} rooms={filteredRooms} />
         )}
         {/* Pagination */}
-        {!isLoading && !isError && filteredRooms.length > 2 && (
-          <Pagination page={page} setPage={setPage} totalRooms={data.length} />
+        {!isLoading && !isError && filteredRooms.length >= limit && (
+          <Pagination
+            page={page}
+            setPage={setPage}
+            totalRooms={filteredRooms.length}
+            limit={limit}
+          />
         )}
       </div>
     </main>
