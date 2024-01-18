@@ -9,6 +9,7 @@ export default function Home() {
   const toggleMobileView = () => {
     setMobileSidebar(true);
   };
+
   return (
     <div className="md:flex gap-4">
       <LeftSidebar
@@ -21,7 +22,7 @@ export default function Home() {
       >
         <Tags /> <h4>Filter by facilities</h4>
       </div>
-      <Main />
+      <Main setMobileSidebar={setMobileSidebar} mobileSidebar={mobileSidebar} />
     </div>
   );
 }

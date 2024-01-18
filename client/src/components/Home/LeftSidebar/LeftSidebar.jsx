@@ -1,4 +1,4 @@
-import { X } from "lucide-react";
+import { Facebook, Github, Instagram, X } from "lucide-react";
 import { useGetFacilitiesQuery } from "../../../features/facility/facilityApi";
 import Error from "../../ui/Error";
 import Loader from "../../ui/Loader";
@@ -36,6 +36,18 @@ export default function LeftSidebar({
         )}
       </div>
       {content}
+
+      <div className="socialLinks flex gap-2 mt-4 border-t pt-4">
+        <a href="#" className="bg-white p-2 rounded-full shadow-lg">
+          <Facebook />
+        </a>
+        <a href="#" className="bg-white p-2 rounded-full shadow-lg">
+          <Instagram />
+        </a>
+        <a href="#" className="bg-white p-2 rounded-full shadow-lg">
+          <Github />
+        </a>
+      </div>
     </div>
   );
 }

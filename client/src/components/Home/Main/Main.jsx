@@ -9,7 +9,7 @@ import ListRooms from "./ListRooms/ListRooms";
 import MainHeaderFilterBtns from "./MainHeaderFilterBtns";
 import Pagination from "./Pagination";
 
-export default function Main() {
+export default function Main({ mobileSidebar, setMobileSidebar }) {
   const [viewMode, setViewMode] = useState("grid");
 
   const { data, isLoading, isError, error } = useGetRoomsQuery();
@@ -55,8 +55,12 @@ export default function Main() {
     filterRoomsFunc();
   }, [filterRoomsFunc]);
 
+  const handleClick = () => {
+    if (mobileSidebar) setMobileSidebar(false);
+  };
+
   return (
-    <main className="w-full">
+    <main className="w-full" onClick={handleClick}>
       <div className="main-header px-0 py-4 sm:p-4 flex justify-between items-center border-b">
         <h2 className="font-semibold text-2xl">Rooms</h2>
         <MainHeaderFilterBtns viewMode={viewMode} setViewMode={setViewMode} />
