@@ -1,9 +1,14 @@
-const Pagination = ({ page, setPage, totalRooms, limit }) => {
+import { useDispatch } from "react-redux";
+import { updatePage } from "../../../features/filter/filterSlice";
+
+const Pagination = ({ page, totalRooms, limit }) => {
+  const dispatch = useDispatch();
+
   const showMore = () => {
-    setPage((prev) => prev + 1);
+    dispatch(updatePage(page + 1));
   };
   const showLess = () => {
-    setPage((prev) => prev - 1);
+    dispatch(updatePage(page - 1));
   };
   return (
     <>

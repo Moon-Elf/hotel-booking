@@ -22,7 +22,7 @@ router.route("/").get(async (req, res) => {
   }
 });
 
-router.route("/:id").post(async (req, res) => {
+router.route("/:id").get(async (req, res) => {
   const id = req.params.id;
   try {
     const room = await Room.findById(id);

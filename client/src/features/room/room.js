@@ -5,7 +5,10 @@ const imageApi = apiSlice.injectEndpoints({
     getRooms: builder.query({
       query: () => "room",
     }),
+    getRoom: builder.query({
+      query: (id) => `room/${id}`,
+    }),
   }),
 });
 
-export const { useGetRoomsQuery } = imageApi;
+export const { useGetRoomsQuery, useGetRoomQuery } = imageApi;

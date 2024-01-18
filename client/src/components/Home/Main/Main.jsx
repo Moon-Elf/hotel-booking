@@ -10,19 +10,18 @@ import MainHeaderFilterBtns from "./MainHeaderFilterBtns";
 import Pagination from "./Pagination";
 
 export default function Main() {
-  const [page, setPage] = useState(1);
-  const [limit] = useState(1);
   const [viewMode, setViewMode] = useState("grid");
 
   const { data, isLoading, isError, error } = useGetRoomsQuery();
+  const { search, selectedRoomFacilities, sort, page, limit } = useSelector(
+    (state) => state.filter
+  );
 
   const [loaded, setLoaded] = useState(false);
   const [selectedTags, setSelectedTags] = useState([]);
   const [orderedRooms, setOrderedRooms] = useState([]);
   const [filteredRooms, setFilteredRooms] = useState([]);
-  const { search, selectedRoomFacilities, sort } = useSelector(
-    (state) => state.filter
-  );
+
   useEffect(() => {
     const formedArr = selectedRoomFacilities.map((obj) => obj.slug).join("-");
     setSelectedTags(formedArr);
@@ -85,7 +84,6 @@ export default function Main() {
         {!isLoading && !isError && filteredRooms.length >= limit && (
           <Pagination
             page={page}
-            setPage={setPage}
             totalRooms={filteredRooms.length}
             limit={limit}
           />

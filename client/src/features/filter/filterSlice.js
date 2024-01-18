@@ -4,6 +4,8 @@ const initialState = {
   search: "",
   selectedRoomFacilities: [],
   sort: "default",
+  page: 1,
+  limit: 2,
 };
 
 const filterSlice = createSlice({
@@ -15,6 +17,9 @@ const filterSlice = createSlice({
     },
     updateSort: (state, action) => {
       state.sort = action.payload;
+    },
+    updatePage: (state, action) => {
+      state.page = action.payload;
     },
     initiateSelectedRoomFacilities: (state, action) => {
       state.selectedRoomFacilities = action.payload;
@@ -36,6 +41,7 @@ export default filterSlice.reducer;
 export const {
   updateSearch,
   updateSort,
+  updatePage,
   addSelectedRoomFacilities,
   removeSelectedRoomFacilities,
   initiateSelectedRoomFacilities,
