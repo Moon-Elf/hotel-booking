@@ -19,7 +19,7 @@ export default function Main() {
 
   const [loaded, setLoaded] = useState(false);
   const [selectedTags, setSelectedTags] = useState([]);
-  const [orderedRooms, setOrderedRooms] = useState([]);
+  // const [orderedRooms, setOrderedRooms] = useState([]);
   const [filteredRooms, setFilteredRooms] = useState([]);
 
   useEffect(() => {
@@ -28,42 +28,32 @@ export default function Main() {
     setLoaded(true);
   }, [selectedRoomFacilities]);
 
-  const sortRooms = useCallback(() => {
-    if (sort === "asc") {
-      const newRooms = _.cloneDeep(data);
-      newRooms.sort((a, b) => a.price - b.price);
-      setOrderedRooms(newRooms);
-    } else if (sort === "desc") {
-      const newRooms = _.cloneDeep(data);
-      newRooms.sort((a, b) => b.price - a.price);
-      setOrderedRooms(newRooms);
-    } else if (sort === "default") {
-      setOrderedRooms(data);
-    }
-  }, [sort, data]);
-
   const filterRoomsFunc = useCallback(() => {
-    if (orderedRooms) {
-      const arr = orderedRooms
-        .filter(
-          (room) =>
-            room.name.toLowerCase().includes(search) ||
-            room.desc.toLowerCase().includes(search)
-        )
-        .filter((room) => {
-          const check = room.facilities.filter((facility) => {
-            if (selectedTags.includes(facility)) return facility;
-          });
-          if (check.length) return room;
-        });
-      setFilteredRooms(arr);
+    const newRooms = _.cloneDeep(data);
+    if (sort === "asc") {
+      newRooms.sort((a, b) => a.price - b.price);
+    } else if (sort === "desc") {
+      newRooms.sort((a, b) => b.price - a.price);
     }
-  }, [search, selectedTags, orderedRooms]);
+
+    const arr = newRooms
+      .filter(
+        (room) =>
+          room.name.toLowerCase().includes(search) ||
+          room.desc.toLowerCase().includes(search)
+      )
+      .filter((room) => {
+        const check = room.facilities.filter((facility) => {
+          if (selectedTags.includes(facility)) return facility;
+        });
+        if (check.length) return room;
+      });
+    setFilteredRooms(arr);
+  }, [search, selectedTags, data, sort]);
 
   useEffect(() => {
-    sortRooms();
     filterRoomsFunc();
-  }, [sortRooms, filterRoomsFunc]);
+  }, [filterRoomsFunc]);
 
   return (
     <main className="w-full">
