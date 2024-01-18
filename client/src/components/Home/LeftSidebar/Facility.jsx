@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import {
   addSelectedRoomFacilities,
   removeSelectedRoomFacilities,
@@ -7,8 +7,15 @@ import {
 
 const Facility = ({ facility }) => {
   const [selected, setSelected] = useState(true);
+  const { selectedRoomFacilities } = useSelector((state) => state.filter);
 
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    const formedArr = selectedRoomFacilities.map((obj) => obj.slug).join("-");
+    if (!formedArr.includes(facility.slug)) setSelected(false);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const handleClick = () => {
     setSelected(!selected);

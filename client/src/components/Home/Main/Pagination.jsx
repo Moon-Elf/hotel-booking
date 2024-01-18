@@ -38,7 +38,7 @@ const Pagination = ({ page, totalRooms, limit }) => {
             </>
           ) : (
             <>
-              {page === 1 ? (
+              {page <= 1 ? (
                 <button className="px-3 h-8 text-sm font-medium bg-slate-100 rounded-s-md hover:bg-gray-200 ">
                   Reached at Top
                 </button>
