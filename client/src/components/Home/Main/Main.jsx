@@ -71,7 +71,7 @@ export default function Main() {
           <GridRooms page={page} limit={limit} rooms={filteredRooms} />
         )}
         {/* Pagination */}
-        {!isLoading && !isError && filteredRooms.length >= limit && (
+        {!isLoading && !isError && filteredRooms.length > limit && (
           <Pagination
             page={page}
             totalRooms={filteredRooms.length}
