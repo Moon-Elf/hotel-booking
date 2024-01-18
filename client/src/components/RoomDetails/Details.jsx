@@ -7,10 +7,10 @@ const Details = ({ room, ratingGot, ratingLeft }) => {
   return (
     <div className="listRoomCard grid gap-2 bg-slate-100 p-2 rounded-md mb-4 relative break-inside-avoid">
       <div className="flex gap-4">
-        <div className="max-w-[300px]">
+        <div className="max-w-[400px] mx-auto md:max-w-[300px]">
           <img src={url} alt={name} className="object-left" />
         </div>
-        <div className="w-full grid gap-4">
+        <div className="w-full hidden gap-4 md:grid">
           <div className="w-full h-60">
             <img src={url} alt={name} className="object-top" />
           </div>
@@ -21,7 +21,7 @@ const Details = ({ room, ratingGot, ratingLeft }) => {
             <img src={url} alt={name} className="object-bottom" />
           </div>
         </div>
-        <div className="max-w-[300px]">
+        <div className="max-w-[300px] hidden md:block">
           <img src={url} alt={name} className="object-right" />
         </div>
       </div>

@@ -29,7 +29,7 @@ export default function Main() {
   }, [selectedRoomFacilities]);
 
   const filterRoomsFunc = useCallback(() => {
-    const newRooms = _.cloneDeep(data);
+    const newRooms = _.cloneDeep(data) || [];
     if (sort === "asc") {
       newRooms.sort((a, b) => a.price - b.price);
     } else if (sort === "desc") {
