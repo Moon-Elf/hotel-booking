@@ -23,7 +23,7 @@ function App() {
       dispatch(
         userLoggedIn({
           name: user.name,
-          phone: user.phone,
+          phone: Number(user.phone),
           id: user.id,
         })
       );

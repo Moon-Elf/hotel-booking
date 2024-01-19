@@ -41,7 +41,7 @@ export default function Navbar() {
             {name ? (
               <>
                 <div className="flex mx-auto w-fit mt-2 sm:mt-0 gap-2 px-2 py-1.5 items-center justify-center rounded-md bg-blue-100 shadow-md text-black">
-                  <span className="font-medium">{name.substring(0, 3)}</span>
+                  <span className="font-medium">{name.substring(0, 2)}</span>
                   <span
                     className="p-1.5 bg-slate-100 rounded-md shadow-md cursor-pointer hover:bg-slate-200 border-2 border-red-500"
                     title="Logout"

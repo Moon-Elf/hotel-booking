@@ -24,7 +24,7 @@ export const authApi = apiSlice.injectEndpoints({
           dispatch(
             userLoggedIn({
               name: result.data.name,
-              phone: result.data.phone,
+              phone: Number(result.data.phone),
               id: result.data._id,
             })
           );
