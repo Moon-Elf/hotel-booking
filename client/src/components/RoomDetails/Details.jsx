@@ -1,14 +1,30 @@
 import { Star, Tags } from "lucide-react";
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import Error from "../ui/Error";
 import BookingForm from "./BookingForm";
 
-const Details = ({ room, ratingGot, ratingLeft }) => {
+const Details = ({ id, room, ratingGot, ratingLeft }) => {
+  const [formedArr, setFormedArr] = useState([]);
   const user = useSelector((state) => state.user);
 
-  const { name, url, price, desc, facilities, bookedCount, bookingLimit } =
-    room;
+  const {
+    name,
+    url,
+    price,
+    desc,
+    facilities,
+    bookedCount,
+    bookingLimit,
+    users,
+  } = room;
+
+  useEffect(() => {
+    const arr = users.map((obj) => obj._id).join("-");
+    setFormedArr(arr);
+  }, [users]);
+
   return (
     <div className="listRoomCard grid gap-2 bg-slate-100 p-2 rounded-md mb-4 relative break-inside-avoid">
       <div className="flex gap-4">
@@ -66,14 +82,18 @@ const Details = ({ room, ratingGot, ratingLeft }) => {
         </div>
         {/* Card Footer */}
         <div className="card-footer sm:flex justify-between items-center border-t mt-4 pt-2">
-          {bookedCount >= bookingLimit ? (
+          {formedArr.includes(user.id) ? (
+            <span className="font-semibold text-green-600">
+              Thanks for booking the room.
+            </span>
+          ) : bookedCount >= bookingLimit ? (
             <span className="font-semibold text-red-400">
               Sorry! Running at maximum capacity
             </span>
           ) : (
             <>
               {user.phone ? (
-                <BookingForm user={user} />
+                <BookingForm id={id} user={user} />
               ) : (
                 <Link to="/auth">
                   <Error message="Login now to book your room" />

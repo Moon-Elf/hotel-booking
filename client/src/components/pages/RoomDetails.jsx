@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { useGetRoomQuery } from "../../features/room/room";
+import { useGetRoomQuery } from "../../features/room/roomApi";
 
 import Details from "../RoomDetails/Details";
 
@@ -29,7 +29,12 @@ const RoomDetails = () => {
   return (
     !isLoading &&
     !isError && (
-      <Details room={data} ratingGot={ratingGot} ratingLeft={ratingLeft} />
+      <Details
+        id={id}
+        room={data}
+        ratingGot={ratingGot}
+        ratingLeft={ratingLeft}
+      />
     )
   );
 };

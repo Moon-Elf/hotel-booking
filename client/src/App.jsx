@@ -17,8 +17,6 @@ function App() {
   const [loaded, setLoaded] = useState(false);
   const { phone } = useSelector((state) => state.user);
 
-  console.log(phone);
-
   useEffect(() => {
     if (localStorage.getItem("auth")) {
       const user = JSON.parse(localStorage.getItem("auth"));
@@ -26,6 +24,7 @@ function App() {
         userLoggedIn({
           name: user.name,
           phone: user.phone,
+          id: user.id,
         })
       );
     }

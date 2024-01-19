@@ -45,7 +45,10 @@ export default function Navbar() {
                   <span
                     className="p-1.5 bg-slate-100 rounded-md shadow-md cursor-pointer hover:bg-slate-200 border-2 border-red-500"
                     title="Logout"
-                    onClick={() => dispatch(userLoggedOut())}
+                    onClick={() => {
+                      dispatch(userLoggedOut());
+                      localStorage.removeItem("auth");
+                    }}
                   >
                     <LogOut size={15} />
                   </span>

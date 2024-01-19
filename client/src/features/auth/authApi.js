@@ -18,12 +18,14 @@ export const authApi = apiSlice.injectEndpoints({
             JSON.stringify({
               name: result.data.name,
               phone: String(result.data.phone),
+              id: result.data._id,
             })
           );
           dispatch(
             userLoggedIn({
               name: result.data.name,
               phone: result.data.phone,
+              id: result.data._id,
             })
           );
         } catch (err) {
@@ -45,12 +47,14 @@ export const authApi = apiSlice.injectEndpoints({
             JSON.stringify({
               name: result.data.name,
               phone: String(result.data.phone),
+              id: result.data._id,
             })
           );
           dispatch(
             userLoggedIn({
               name: result.data.name,
               phone: result.data.phone,
+              id: result.data._id,
             })
           );
         } catch (err) {

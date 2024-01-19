@@ -1,7 +1,7 @@
 import _ from "lodash";
 import { useCallback, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { useGetRoomsQuery } from "../../../features/room/room";
+import { useGetRoomsQuery } from "../../../features/room/roomApi";
 import Error from "../../ui/Error";
 import Loader from "../../ui/Loader";
 import GridRooms from "./GridRooms/GridRooms";

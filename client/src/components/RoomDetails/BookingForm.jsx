@@ -1,14 +1,25 @@
 import { useState } from "react";
+import { useBookRoomMutation } from "../../features/room/roomApi";
 import Button from "../ui/Button";
 import Input from "../ui/Input";
-const BookingForm = ({ user }) => {
+const BookingForm = ({ id, user }) => {
   const [formData, setFormData] = useState({
     name: user.name,
     phone: `0${user.phone}`,
   });
 
-  const handleSubmit = (e) => {
+  const [bookRoom, { isLoading }] = useBookRoomMutation();
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    await bookRoom({
+      id: id,
+      body: {
+        _id: user.id,
+        name: formData.name,
+        phone: formData.phone,
+      },
+    });
   };
 
   return (
@@ -47,7 +58,10 @@ const BookingForm = ({ user }) => {
           />
         </div>
         <div className="mt-2">
-          <Button msg="Book Now" disabled={!formData.name || !formData.phone} />
+          <Button
+            msg="Book Now"
+            disabled={!formData.name || !formData.phone || isLoading}
+          />
         </div>
       </form>
     </>
