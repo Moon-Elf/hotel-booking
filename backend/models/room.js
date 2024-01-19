@@ -7,7 +7,7 @@ const roomSchema = Schema({
   desc: String,
   bookingLimit: Number,
   bookedCount: Number,
-  users: [{ name: String, phone: Number }],
+  users: [{ _id: String, name: String, phone: Number }],
   facilities: [String],
 });
 
