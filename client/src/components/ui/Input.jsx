@@ -1,6 +1,6 @@
 const Input = ({ name, icon, ...rest }) => {
   return (
-    <div className="relative">
+    <div className="relative w-full">
       <input
         type="text"
         id={name}
