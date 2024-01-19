@@ -72,7 +72,7 @@ export default function Navbar() {
         <i className="fa-solid fa-magnifying-glass search-icon group-focus-within:text-blue-500"></i>
         <Input
           placeholder="Search for room"
-          name="search"
+          name="search-mobile"
           value={search}
           onChange={handleSearch}
           icon={<Search />}

@@ -1,9 +1,12 @@
 import { Star, Tags } from "lucide-react";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import Error from "../ui/Error";
 import BookingForm from "./BookingForm";
 
 const Details = ({ room, ratingGot, ratingLeft }) => {
-  // const { phone, name: user } = useSelector((state) => state.user);
-  // console.log(phone, user);
+  const user = useSelector((state) => state.user);
+
   const { name, url, price, desc, facilities, bookedCount, bookingLimit } =
     room;
   return (
@@ -69,7 +72,13 @@ const Details = ({ room, ratingGot, ratingLeft }) => {
             </span>
           ) : (
             <>
-              <BookingForm />
+              {user.phone ? (
+                <BookingForm user={user} />
+              ) : (
+                <Link to="/auth">
+                  <Error message="Login now to book your room" />
+                </Link>
+              )}
             </>
           )}
           <div className="flex gap-1 justify-center sm:justify-end mt-2 sm:mt-0">

@@ -77,7 +77,7 @@ const Room = ({ room }) => {
             </span>
           ) : (
             <Link to={`/room/${_id}`}>
-              <Button secondary msg="Book Today" />
+              <Button msg="Book Today" />
             </Link>
           )}
           <div className="flex gap-1 justify-center sm:justify-end mt-2 sm:mt-0">
