@@ -4,6 +4,7 @@ const User = require("../models/user");
 const bcrypt = require("bcrypt");
 
 router.route("/").post(async (req, res) => {
+  if (!req.body.password) return res.status(400).send("Password missing");
   const salt = await bcrypt.genSalt(10);
   const hash = await bcrypt.hash(req.body.password, salt);
 
@@ -38,6 +39,14 @@ router.route("/login").post(async (req, res) => {
   } catch (err) {
     return res.status(400).send("Bad Request");
   }
+});
+
+router.route("/check").post(async (req, res) => {
+  if (!req.body.phone) return res.status(400).send("Phone number missing");
+
+  const user = await User.findOne({ phone: req.body.phone });
+  if (!user) return res.status(400).send({ status: "no" });
+  else return res.send({ status: "yes", name: user.name });
 });
 
 module.exports = router;
