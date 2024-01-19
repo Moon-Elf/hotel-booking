@@ -5,7 +5,7 @@ const initialState = {
   selectedRoomFacilities: [],
   sort: "default",
   page: 1,
-  limit: 2,
+  limit: 3,
 };
 
 const filterSlice = createSlice({
