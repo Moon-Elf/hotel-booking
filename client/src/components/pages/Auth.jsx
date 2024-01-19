@@ -1,5 +1,8 @@
-import { ChevronRight, Smartphone } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import Login from "../Auth/Login";
+import PhoneForm from "../Auth/PhoneForm";
+import Signup from "../Auth/Signup";
 
 const Auth = () => {
   return (
@@ -25,25 +28,9 @@ const Auth = () => {
           Experience the epitome of hospitality in Dhaka for an unforgettable
           stay.
         </p>
-        <form className="w-full max-w-md mx-auto">
-          <div className="relative">
-            <div className="absolute inset-y-0 rtl:inset-x-0 start-0 flex items-center ps-3.5 pointer-events-none">
-              <Smartphone className="stroke-blue-500" size={20} />
-            </div>
-            <input
-              type="number"
-              className="block w-full p-4 ps-10 text-sm rounded-md border-2 border-blue-500 focus:outline-none focus:ring-2 focus:ring-green-500"
-              placeholder="Phone number here..."
-              required
-            />
-            <button
-              type="submit"
-              className="text-white absolute top-1/2 right-2 -translate-y-1/2 rounded-md text-sm px-4 py-2 bg-blue-500 hover:bg-blue-700 focus:ring-blue-800"
-            >
-              Continue
-            </button>
-          </div>
-        </form>
+        <PhoneForm />
+        <Login />
+        <Signup />
       </div>
     </section>
   );
