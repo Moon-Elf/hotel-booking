@@ -1,8 +1,16 @@
-import { CircleUserRound, Key } from "lucide-react";
+import { ChevronLeft, CircleUserRound, Key } from "lucide-react";
 
-const Signup = () => {
+const Signup = ({ setStep }) => {
   return (
     <div className="text-white">
+      <p className="text-sm mb-1">
+        <span
+          className="underline cursor-pointer flex justify-center items-center"
+          onClick={() => setStep(1)}
+        >
+          <ChevronLeft size={20} /> Go back
+        </span>
+      </p>
       <h3 className="text-sm mb-2">
         Create an account today not to miss the best deals on rooms*
       </h3>

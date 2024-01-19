@@ -2,6 +2,8 @@ import { Star, Tags } from "lucide-react";
 import BookingForm from "./BookingForm";
 
 const Details = ({ room, ratingGot, ratingLeft }) => {
+  // const { phone, name: user } = useSelector((state) => state.user);
+  // console.log(phone, user);
   const { name, url, price, desc, facilities, bookedCount, bookingLimit } =
     room;
   return (
@@ -66,7 +68,9 @@ const Details = ({ room, ratingGot, ratingLeft }) => {
               Sorry! Running at maximum capacity
             </span>
           ) : (
-            <BookingForm />
+            <>
+              <BookingForm />
+            </>
           )}
           <div className="flex gap-1 justify-center sm:justify-end mt-2 sm:mt-0">
             <span>{bookedCount}</span>/

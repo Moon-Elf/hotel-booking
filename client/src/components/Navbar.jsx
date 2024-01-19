@@ -1,12 +1,14 @@
-import { Search } from "lucide-react";
+import { LogIn, LogOut, Search } from "lucide-react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { userLoggedOut } from "../features/auth/authSlice";
 import { updateSearch } from "../features/filter/filterSlice";
 import Input from "./ui/Input";
 
 export default function Navbar() {
   const { search: storeSearch } = useSelector((state) => state.filter);
+  const { name } = useSelector((state) => state.user);
   const dispatch = useDispatch();
 
   const [search, setSearch] = useState(storeSearch);
@@ -34,6 +36,35 @@ export default function Navbar() {
               onChange={handleSearch}
               icon={<Search />}
             />
+          </div>
+          <div>
+            {name ? (
+              <>
+                <div className="flex mx-auto w-fit mt-2 sm:mt-0 gap-2 px-2 py-1.5 items-center justify-center rounded-md bg-blue-100 shadow-md text-black">
+                  <span className="font-medium">{name.substring(0, 3)}</span>
+                  <span
+                    className="p-2 bg-slate-100 rounded-md shadow-md cursor-pointer hover:bg-slate-200 border border-red-500"
+                    title="Logout"
+                    onClick={() => dispatch(userLoggedOut())}
+                  >
+                    <LogOut size={15} />
+                  </span>
+                </div>
+              </>
+            ) : (
+              <Link
+                to="/auth"
+                className="flex mx-auto w-fit mt-2 sm:mt-0 gap-2 px-2 py-1.5 items-center justify-center rounded-md bg-blue-100 shadow-md text-black"
+              >
+                <span className="font-medium">Login</span>
+                <span
+                  className="p-2 bg-slate-100 rounded-md shadow-md cursor-pointer hover:bg-slate-200 border border-red-500"
+                  title="Logout"
+                >
+                  <LogIn size={15} />
+                </span>
+              </Link>
+            )}
           </div>
         </div>
       </nav>

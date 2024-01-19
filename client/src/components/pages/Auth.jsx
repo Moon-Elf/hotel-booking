@@ -1,10 +1,13 @@
 import { ChevronRight } from "lucide-react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import Login from "../Auth/Login";
 import PhoneForm from "../Auth/PhoneForm";
 import Signup from "../Auth/Signup";
 
 const Auth = () => {
+  const [data, setData] = useState({ name: "", phone: "" });
+  const [step, setStep] = useState(1);
   return (
     <section className="bg-slate-950 bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/hero-pattern-dark.svg')] rounded-md shadow-md">
       <div className="bg-blue-500/10 backdrop-blur-sm py-8 px-4 text-center lg:py-16 rounded-md">
@@ -28,9 +31,13 @@ const Auth = () => {
           Experience the epitome of hospitality in Dhaka for an unforgettable
           stay.
         </p>
-        <PhoneForm />
-        <Login />
-        <Signup />
+        {step === 1 ? (
+          <PhoneForm data={data} setData={setData} setStep={setStep} />
+        ) : step === 2 ? (
+          <Login data={data} setStep={setStep} />
+        ) : (
+          <Signup data={data} setStep={setStep} />
+        )}
       </div>
     </section>
   );

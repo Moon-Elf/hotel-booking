@@ -66,7 +66,11 @@ export default function Main({ mobileSidebar, setMobileSidebar }) {
         <MainHeaderFilterBtns viewMode={viewMode} setViewMode={setViewMode} />
       </div>
       <div className="sm:p-4">
-        {isLoading && <Loader />}
+        {isLoading && (
+          <div className="mt-4">
+            <Loader />
+          </div>
+        )}
         {!isLoading && isError && <Error message={error.status} />}
         {!isLoading && !isError && viewMode === "list" && loaded && (
           <ListRooms page={page} limit={limit} rooms={filteredRooms} />

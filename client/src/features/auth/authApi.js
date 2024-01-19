@@ -17,13 +17,13 @@ export const authApi = apiSlice.injectEndpoints({
             "auth",
             JSON.stringify({
               name: result.data.name,
-              email: result.data.email,
+              phone: String(result.data.phone),
             })
           );
           dispatch(
             userLoggedIn({
               name: result.data.name,
-              email: result.data.email,
+              phone: result.data.phone,
             })
           );
         } catch (err) {
@@ -44,13 +44,13 @@ export const authApi = apiSlice.injectEndpoints({
             "auth",
             JSON.stringify({
               name: result.data.name,
-              email: result.data.email,
+              phone: String(result.data.phone),
             })
           );
           dispatch(
             userLoggedIn({
               name: result.data.name,
-              email: result.data.email,
+              phone: result.data.phone,
             })
           );
         } catch (err) {
