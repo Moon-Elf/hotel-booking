@@ -13,3 +13,12 @@
 img {
     @apply w-full h-full object-cover rounded-md
 }
+
+.modalContainer {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.modalContainer::-webkit-scrollbar {
+    display: none;
+}

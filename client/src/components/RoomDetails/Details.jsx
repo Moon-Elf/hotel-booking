@@ -4,8 +4,10 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import Error from "../ui/Error";
 import BookingForm from "./BookingForm";
+import ImageModal from "./ImageModal";
 
 const Details = ({ id, room, ratingGot, ratingLeft }) => {
+  const [modal, setModal] = useState(false);
   const [formedArr, setFormedArr] = useState([]);
   const user = useSelector((state) => state.user);
 
@@ -25,25 +27,54 @@ const Details = ({ id, room, ratingGot, ratingLeft }) => {
     setFormedArr(arr);
   }, [users]);
 
+  let tags = facilities.map((facility, index) => (
+    <span
+      key={index}
+      className="bg-white px-2 rounded-md cursor-pointer flex gap-1 items-center"
+    >
+      <Tags size={18} /> {facility}
+    </span>
+  ));
+
   return (
     <div className="listRoomCard grid gap-2 bg-slate-100 p-2 rounded-md mb-4 relative break-inside-avoid">
       <div className="flex gap-4">
         <div className="max-w-[400px] mx-auto md:max-w-[300px]">
-          <img src={url} alt={name} className="object-left" />
+          <img
+            src={url}
+            alt={name}
+            className="object-left cursor-pointer"
+            onClick={() => setModal(true)}
+          />
         </div>
         <div className="w-full hidden gap-4 md:grid">
           <div className="w-full h-60">
-            <img src={url} alt={name} className="object-top" />
+            <img
+              src={url}
+              alt={name}
+              className="object-top cursor-pointer"
+              onClick={() => setModal(true)}
+            />
           </div>
           <div className="w-full h-60">
-            <img src={url} alt={name} />
+            <img src={url} alt={name} onClick={() => setModal(true)} />
           </div>
           <div className="w-full h-60">
-            <img src={url} alt={name} className="object-bottom" />
+            <img
+              src={url}
+              alt={name}
+              className="object-bottom cursor-pointer"
+              onClick={() => setModal(true)}
+            />
           </div>
         </div>
         <div className="max-w-[300px] hidden md:block">
-          <img src={url} alt={name} className="object-right" />
+          <img
+            src={url}
+            alt={name}
+            className="object-right cursor-pointer"
+            onClick={() => setModal(true)}
+          />
         </div>
       </div>
       {/* Card Details */}
@@ -51,16 +82,7 @@ const Details = ({ id, room, ratingGot, ratingLeft }) => {
         <h5 className="font-semibold text-2xl">{name}</h5>
         {/* Card Body */}
         <div className="card-body grid gap-1 mt-2">
-          <div className="flex flex-wrap gap-2 py-2">
-            {facilities.map((facility, index) => (
-              <span
-                key={index}
-                className="bg-white px-2 rounded-md cursor-pointer flex gap-1 items-center"
-              >
-                <Tags size={18} /> {facility}
-              </span>
-            ))}
-          </div>
+          <div className="flex flex-wrap gap-2 py-2">{tags}</div>
           {/* Price */}
           <div className="flex gap-2 items-center">
             <span className="text-2xl font-bold text-orange-500">{price}</span>{" "}
@@ -107,6 +129,9 @@ const Details = ({ id, room, ratingGot, ratingLeft }) => {
           </div>
         </div>
       </div>
+      {modal && (
+        <ImageModal tags={tags} url={url} name={name} setModal={setModal} />
+      )}
     </div>
   );
 };
