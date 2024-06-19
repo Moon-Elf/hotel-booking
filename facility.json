@@ -1,0 +1,42 @@
+[
+  {
+    "name": "Free Wi-Fi",
+    "slug": "free-wi-fi"
+  },
+  {
+    "name": "Swimming Pool",
+    "slug": "swimming-pool"
+  },
+  {
+    "name": "Fitness Center",
+    "slug": "fitness-center"
+  },
+  {
+    "name": "Restaurant",
+    "slug": "restaurant"
+  },
+  {
+    "name": "Room Service",
+    "slug": "room-service"
+  },
+  {
+    "name": "Parking",
+    "slug": "parking"
+  },
+  {
+    "name": "Spa",
+    "slug": "spa"
+  },
+  {
+    "name": "Airport Shuttle",
+    "slug": "airport-shuttle"
+  },
+  {
+    "name": "Pet-Friendly",
+    "slug": "pet-friendly"
+  },
+  {
+    "name": "Business Center",
+    "slug": "business-center"
+  }
+]

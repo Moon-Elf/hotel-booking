@@ -32,7 +32,7 @@ export default function Main({ mobileSidebar, setMobileSidebar }) {
     const newRooms = _.cloneDeep(data) || [];
     if (sort === "asc") {
       newRooms.sort((a, b) => a.price - b.price);
-    } else if (sort === "desc") {
+    } else if (sort === "description") {
       newRooms.sort((a, b) => b.price - a.price);
     }
 
@@ -40,7 +40,7 @@ export default function Main({ mobileSidebar, setMobileSidebar }) {
       .filter(
         (room) =>
           room.name.toLowerCase().includes(search) ||
-          room.desc.toLowerCase().includes(search)
+          room.description.toLowerCase().includes(search)
       )
       .filter((room) => {
         const check = room.facilities.filter((facility) => {

@@ -15,7 +15,7 @@ const Details = ({ id, room, ratingGot, ratingLeft }) => {
     name,
     url,
     price,
-    desc,
+    description,
     facilities,
     bookedCount,
     bookingLimit,
@@ -88,7 +88,7 @@ const Details = ({ id, room, ratingGot, ratingLeft }) => {
             <span className="text-2xl font-bold text-orange-500">{price}</span>{" "}
             BDT
           </div>
-          <p>{desc}</p>
+          <p>{description}</p>
           <div className="flex gap-1">
             {ratingGot.map((arr, index) => (
               <Star

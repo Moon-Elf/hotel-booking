@@ -1,0 +1,112 @@
+[
+  {
+    "name": "Deluxe Room",
+    "url": "https://www.peninsula.com/-/media/homepage---andy/exterior-2_1920.jpg",
+    "rating": 4.5,
+    "description": "Spacious room with a beautiful city view, king-size bed, and modern amenities.",
+    "bookingLimit": 5,
+    "bookedCount": 2,
+    "price": "200",
+    "users": [],
+    "facilities": ["free-wi-fi", "swimming-pool", "room-service"]
+  },
+  {
+    "name": "Superior Room",
+    "url": "https://www.peninsula.com/-/media/homepage---andy/exterior-2_1920.jpg",
+    "rating": 4.7,
+    "description": "Elegant room with premium furnishings, queen-size bed, and a serene garden view.",
+    "bookingLimit": 5,
+    "bookedCount": 1,
+    "price": "180",
+    "users": [],
+    "facilities": ["fitness-center", "restaurant", "parking"]
+  },
+  {
+    "name": "Standard Room",
+    "url": "https://www.peninsula.com/-/media/homepage---andy/exterior-2_1920.jpg",
+    "rating": 4.0,
+    "description": "Comfortable room with essential amenities and a cozy atmosphere.",
+    "bookingLimit": 5,
+    "bookedCount": 3,
+    "price": "150",
+    "users": [],
+    "facilities": ["free-wi-fi", "room-service", "business-center"]
+  },
+  {
+    "name": "Executive Suite",
+    "url": "https://www.peninsula.com/-/media/homepage---andy/exterior-2_1920.jpg",
+    "rating": 4.9,
+    "description": "Luxurious suite with separate living area, king-size bed, and executive amenities.",
+    "bookingLimit": 5,
+    "bookedCount": 1,
+    "price": "350",
+    "users": [],
+    "facilities": ["spa", "airport-shuttle", "business-center"]
+  },
+  {
+    "name": "Junior Suite",
+    "url": "https://www.peninsula.com/-/media/homepage---andy/exterior-2_1920.jpg",
+    "rating": 4.6,
+    "description": "Stylish suite with comfortable seating area, queen-size bed, and modern decor.",
+    "bookingLimit": 5,
+    "bookedCount": 2,
+    "price": "280",
+    "users": [],
+    "facilities": ["fitness-center", "restaurant", "pet-friendly"]
+  },
+  {
+    "name": "Family Room",
+    "url": "https://www.peninsula.com/-/media/homepage---andy/exterior-2_1920.jpg",
+    "rating": 4.3,
+    "description": "Spacious room ideal for families, featuring multiple beds and kid-friendly amenities.",
+    "bookingLimit": 5,
+    "bookedCount": 4,
+    "price": "220",
+    "users": [],
+    "facilities": ["swimming-pool", "room-service", "pet-friendly"]
+  },
+  {
+    "name": "Single Room",
+    "url": "https://www.peninsula.com/-/media/homepage---andy/exterior-2_1920.jpg",
+    "rating": 3.9,
+    "description": "Compact room perfect for solo travelers, equipped with all necessary amenities.",
+    "bookingLimit": 5,
+    "bookedCount": 2,
+    "price": "100",
+    "users": [],
+    "facilities": ["free-wi-fi", "parking", "business-center"]
+  },
+  {
+    "name": "Double Room",
+    "url": "https://www.peninsula.com/-/media/homepage---andy/exterior-2_1920.jpg",
+    "rating": 4.2,
+    "description": "Comfortable room with two double beds, ideal for friends or small families.",
+    "bookingLimit": 5,
+    "bookedCount": 3,
+    "price": "160",
+    "users": [],
+    "facilities": ["free-wi-fi", "restaurant", "parking"]
+  },
+  {
+    "name": "Luxury Suite",
+    "url": "https://www.peninsula.com/-/media/homepage---andy/exterior-2_1920.jpg",
+    "rating": 5.0,
+    "description": "Opulent suite with top-tier amenities, breathtaking views, and premium services.",
+    "bookingLimit": 5,
+    "bookedCount": 0,
+    "price": "500",
+    "users": [],
+    "facilities": ["spa", "airport-shuttle", "swimming-pool"]
+  },
+  {
+    "name": "Budget Room",
+    "url": "https://www.peninsula.com/-/media/homepage---andy/exterior-2_1920.jpg",
+    "rating": 3.5,
+    "description": "Affordable room with basic amenities, perfect for budget-conscious travelers.",
+    "bookingLimit": 5,
+    "bookedCount": 4,
+    "price": "80",
+    "users": [],
+    "facilities": ["free-wi-fi", "parking", "room-service"]
+  }
+]

@@ -11,15 +11,15 @@ const Room = ({ room }) => {
     _id,
     bookedCount,
     bookingLimit,
-    desc,
+    description,
     facilities,
   } = room;
 
-  const ratingArr = new Array(rating);
+  const ratingArr = new Array(Math.floor(rating));
   for (let i = 0; i < rating; i++) {
     ratingArr[i] = (i + 1).toString();
   }
-  const ratingLeftArr = new Array(5 - rating);
+  const ratingLeftArr = new Array(5 - Math.floor(rating));
   for (let i = 0; i < 5 - rating; i++) {
     ratingLeftArr[i] = (i + 1).toString();
   }
@@ -39,7 +39,11 @@ const Room = ({ room }) => {
         {/* Card Body */}
         <div className="card-body grid gap-1 mt-2">
           <p>
-            {desc.length > 60 ? <span>{desc.substring(0, 60)}...</span> : desc}
+            {description.length > 60 ? (
+              <span>{description.substring(0, 60)}...</span>
+            ) : (
+              description
+            )}
           </p>
           <div className="flex flex-wrap gap-2 py-2">
             {facilities.map((facility, index) => (

@@ -4,9 +4,10 @@ const roomSchema = Schema({
   name: String,
   url: String,
   rating: Number,
-  desc: String,
+  description: String,
   bookingLimit: Number,
   bookedCount: Number,
+  price: String,
   users: [{ _id: String, name: String, phone: Number }],
   facilities: [String],
 });

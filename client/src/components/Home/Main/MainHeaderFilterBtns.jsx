@@ -30,7 +30,7 @@ const MainHeaderFilterBtns = ({ viewMode, setViewMode }) => {
       >
         <option value="default">Default</option>
         <option value="asc">Low to High</option>
-        <option value="desc">High to Low</option>
+        <option value="description">High to Low</option>
       </select>
     </div>
   );
